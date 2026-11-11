@@ -1,0 +1,7 @@
+aiosmtpd
+cryptography
+dkimpy
+dnspython
+fastapi
+pydantic
+uvicorn

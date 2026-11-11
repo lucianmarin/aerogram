@@ -1,0 +1,23 @@
+[Unit]
+Description=Aerogram service
+After=network.target nginx.service
+
+[Service]
+User=lucian
+Group=lucian
+PIDFile=/home/lucian/aerogram/aero.pid
+RuntimeDirectory=uvicorn
+WorkingDirectory=/home/lucian/aerogram
+ExecStart=/home/lucian/aerogram/venv/bin/uvicorn main:app --uds aero.socket
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
+
+# sudo cp aero.service /etc/systemd/system/aero.service
+# sudo systemctl daemon-reload
+# sudo systemctl restart aero.service
+# start on boot
+# sudo systemctl enable aero.service

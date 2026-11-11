@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__
+
+.pytest_cache
+.ruff_cache
+
+app/local.py
+keys/
+*.pem
+
+aero.pid
+aero.socket
+
+venv/
+.venv/
